@@ -30,3 +30,6 @@ exports.scrapeData = async (req, res) => {
     return res.status(500).json({ error: "Erreur interne du serveur" });
   }
 };
+
+// This controller sends the search request to the n8n webhook,
+// waits for the scraped data, and returns it to the client.
