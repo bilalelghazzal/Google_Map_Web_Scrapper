@@ -31,5 +31,5 @@ exports.scrapeData = async (req, res) => {
   }
 };
 
-// This controller sends the search request to the n8n webhook,
-// waits for the scraped data, and returns it to the client.
+/*This controller sends the search request to the n8n webhook,
+ waits for the scraped data, and returns it to the client.*/
