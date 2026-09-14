@@ -1,0 +1,8 @@
+
+# ignore node modules form backend & frontend : 
+
+/backend/node_modules
+/frontend/node_modules
+# ignore dotenv files :
+/backend/.env
+/frontend/.env
