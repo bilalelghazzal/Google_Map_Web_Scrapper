@@ -5,7 +5,12 @@ import viteLogo from "./assets/vite.svg";
 import "./App.css";
 
 function App() {
-  return <>hello world</>;
+  const [searchQuery, setSearchQuery] = useState("");
+  const [location, setLocation] = useState("");
+  const [results, setResults] = useState([]);
+  const [loading, setLoading] = useState(false);
+  const [error, setError] = useState("");
 }
 
 export default App;
+// app :
