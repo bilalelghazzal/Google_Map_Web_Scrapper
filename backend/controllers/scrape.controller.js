@@ -1,5 +1,5 @@
 const axios = require("axios");
-const N8N_WEBHOOK_URL = require("../config/env");
+const { N8N_WEBHOOK_URL } = require("../config/env");
 
 exports.scrapeData = async (req, res) => {
   const { searchQuery, location } = req.body;
@@ -21,7 +21,7 @@ exports.scrapeData = async (req, res) => {
 
     if (!response.data || response.data.length === 0) {
       return res
-        .status(200)
+        .status(204)
         .json({ error: "Aucune donné recus du weebhook n8n" });
     }
     res.status(200).json({ data: response.data });
