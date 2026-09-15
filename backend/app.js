@@ -4,7 +4,7 @@ const scrapeRoute = require("./routes/scrape.route");
 
 const app = express();
 
-app.use(cors()); // à restreindre plus tard à l'origine de ton frontend React
+app.use(cors()); // à restreindre plus tard à l'origine de  frontend React
 app.use(express.json());
 
 app.use("/api", scrapeRoute);

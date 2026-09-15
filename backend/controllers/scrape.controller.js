@@ -1,5 +1,5 @@
 const axios = require("axios");
-const N8N_WEBHOOK_URL = require("../config/env");
+const { N8N_WEBHOOK_URL } = require("../config/env");
 
 exports.scrapeData = async (req, res) => {
   const { searchQuery, location } = req.body;
@@ -8,6 +8,13 @@ exports.scrapeData = async (req, res) => {
     return res
       .status(400)
       .json({ error: "searchQuery et location sont requis" });
+  }
+
+  if (!N8N_WEBHOOK_URL) {
+    console.error("N8N_WEBHOOK_URL est manquant dans le fichier .env");
+    return res
+      .status(500)
+      .json({ error: "Configuration du webhook n8n manquante" });
   }
 
   try {
@@ -22,11 +29,12 @@ exports.scrapeData = async (req, res) => {
     if (!response.data || response.data.length === 0) {
       return res
         .status(200)
-        .json({ error: "Aucune donné recus du weebhook n8n" });
+        .json({ error: "Aucune donnée reçue du webhook n8n" });
     }
-    res.status(200).json({ data: response.data });
+
+    return res.status(200).json({ data: response.data });
   } catch (error) {
-    console.error("Error lor de lappel au webhook n8n", error.message);
+    console.error("Erreur lors de l'appel au webhook n8n :", error.message);
     return res.status(500).json({ error: "Erreur interne du serveur" });
   }
 };
