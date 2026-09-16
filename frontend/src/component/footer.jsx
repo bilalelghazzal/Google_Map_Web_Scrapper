@@ -1,9 +1,7 @@
-function header() {
+export default function Footer() {
   return (
-    <>
-      <div>
-        <h1>Header of Application</h1>
-      </div>
-    </>
+    <footer className="footer">
+      <p>© Google Map Scraper</p>
+    </footer>
   );
 }
