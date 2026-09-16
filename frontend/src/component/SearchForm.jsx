@@ -1,8 +1,15 @@
-export default function SearchForm() {
+export default function SearchForm(
+  searchQuery,
+  setSearchQuery,
+  location,
+  setLocation,
+  onScrape,
+  loading,
+) {
   <div className="search-form">
     <input
       type="text"
-      placeholder="Search Query (ex: Ecole privée)"
+      placeholder="Search Query (ex: Ecole privée ,Ain Chock)"
       value={searchQuery}
       onChange={(e) => setSearchQuery(e.target.value)}
     />
