@@ -1,0 +1,19 @@
+# Dépendances
+node_modules/
+
+# Variables d'environnement (secrets : URL du webhook n8n, etc.)
+.env
+.env.local
+
+# Logs
+*.log
+npm-debug.log*
+
+# Fichiers OS / éditeurs
+.DS_Store
+Thumbs.db
+.vscode/
+.idea/
+
+# Cache
+.cache/

@@ -1,0 +1,76 @@
+.App {
+  max-width: 960px;
+  margin: 0 auto;
+  padding: 40px 20px;
+  text-align: center;
+}
+
+.search-form {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px;
+  justify-content: center;
+  margin-bottom: 24px;
+}
+
+.search-form input {
+  flex: 1 1 240px;
+  padding: 10px 14px;
+  font-size: 16px;
+  color: var(--text-h);
+  background: var(--bg);
+  border: 1px solid var(--border);
+  border-radius: 6px;
+}
+
+.search-form input:focus-visible {
+  outline: 2px solid var(--accent);
+  outline-offset: 1px;
+}
+
+.search-form button {
+  padding: 10px 20px;
+  font-size: 16px;
+  color: #fff;
+  background: var(--accent);
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
+}
+
+.search-form button:disabled {
+  opacity: 0.6;
+  cursor: not-allowed;
+}
+
+.error {
+  margin-bottom: 16px;
+  color: #d32f2f;
+}
+
+.results-table {
+  width: 100%;
+  margin-bottom: 24px;
+  text-align: left;
+  border-collapse: collapse;
+}
+
+.results-table th,
+.results-table td {
+  padding: 8px 12px;
+  border: 1px solid var(--border);
+}
+
+.results-table th {
+  background: var(--social-bg);
+}
+
+.download-btn {
+  padding: 10px 20px;
+  font-size: 16px;
+  color: #fff;
+  background: #1a7f37;
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
+}
