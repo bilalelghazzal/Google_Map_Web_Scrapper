@@ -16,11 +16,11 @@
   color: var(--text);
   background: var(--bg);
   font-synthesis: none;
-  /* text-rendering: optimizeLegibility;  cc */
+  text-rendering: optimizeLegibility; /* this below just for ios/mac browser and firefox */
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }
-
+/* this for Theme if it is dark  */
 @media (prefers-color-scheme: dark) {
   :root {
     --text: #9ca3af;
