@@ -12,7 +12,7 @@ export default function SearchForm({
       <input
         id="search-query"
         type="text"
-        placeholder="(ex: Ecole privée ,Ain Chock)"
+        placeholder="Ecole privée ,Ain Chock"
         value={searchQuery}
         onChange={(e) => setSearchQuery(e.target.value)}
       />
@@ -21,7 +21,7 @@ export default function SearchForm({
       <input
         id="location"
         type="text"
-        placeholder="Localisation (ex: Casablanca, Morocco)"
+        placeholder="Casablanca, Morocco"
         value={location}
         onChange={(e) => setLocation(e.target.value)}
       />

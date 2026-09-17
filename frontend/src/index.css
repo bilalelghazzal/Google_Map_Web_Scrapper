@@ -2,17 +2,21 @@
   --text: #6b6375;
   --text-h: #08060d;
   --bg: #fff;
-  --border: #e5e4e7;
-  --accent: #aa3bff;
+  --border: #dadfd9;
+  --accent: #20ca34;
   --social-bg: rgba(244, 243, 236, 0.5);
 
-  font: 18px/145% system-ui, "Segoe UI", Roboto, sans-serif;
+  font:
+    18px/145% system-ui,
+    "Segoe UI",
+    Roboto,
+    sans-serif;
   letter-spacing: 0.18px;
   color-scheme: light dark;
   color: var(--text);
   background: var(--bg);
   font-synthesis: none;
-  text-rendering: optimizeLegibility;
+  /* text-rendering: optimizeLegibility;  cc */
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }
