@@ -2,7 +2,7 @@ import { useNavigate } from "react-router";
 import * as FaIcons from "react-icons/fa";
 import { useAuth } from "../context/AuthContext";
 
-// Lecture sécurisée de l'utilisateur stocké (le login n'existe pas encore)
+// Lecture sécurisée de l'utilisateur stocké
 function getStoredUser() {
   try {
     return JSON.parse(localStorage.getItem("user") || "null");
