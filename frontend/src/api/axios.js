@@ -23,8 +23,7 @@ api.interceptors.response.use(
     const status = error.response?.status;
     const isLoginRequest = error.config?.url?.includes("/auth/login");
 
-    // On ignore le 401 du login : c'est juste un mauvais mot de passe,
-    // ce n'est pas une session expirée.
+    // On ignore le 401 du login
     if (status === 401 && !isLoginRequest) {
       localStorage.removeItem("token");
       localStorage.removeItem("user");

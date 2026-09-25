@@ -295,3 +295,91 @@
 .profile-card .logout-btn {
   margin-top: 12px;
 }
+
+/* ===== Page de connexion ===== */
+/* /login est hors de AppLayout : pas de menu, donc l'espace réservé
+   au menu (72px) n'est pas nécessaire. */
+.login-page {
+  padding-top: 72px;
+}
+
+.login-card {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 8px;
+  max-width: 400px;
+  margin: 0 auto;
+  padding: 28px 24px;
+  text-align: left;
+  background: var(--social-bg);
+  border: 1px solid var(--border);
+  border-radius: 10px;
+}
+
+.login-form {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  width: 100%;
+}
+
+.form-group {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+
+.form-group label {
+  font-weight: 600;
+  color: var(--text-h);
+}
+
+.input-icon-wrapper {
+  position: relative;
+  display: flex;
+  align-items: center;
+}
+
+.input-icon {
+  position: absolute;
+  left: 12px;
+  font-size: 16px;
+  color: var(--text);
+  pointer-events: none;
+}
+
+.input-icon-wrapper input {
+  width: 100%;
+  box-sizing: border-box;
+  padding: 10px 14px 10px 38px; /* laisse la place à l'icône */
+  font-size: 16px;
+  color: var(--text-h);
+  background: var(--bg);
+  border: 1px solid var(--border);
+  border-radius: 6px;
+}
+
+.input-icon-wrapper input:focus-visible {
+  outline: 2px solid var(--accent);
+  outline-offset: 1px;
+}
+
+.login-btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  padding: 10px 20px;
+  font-size: 16px;
+  color: #fff;
+  background: var(--accent);
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
+}
+
+.login-btn:disabled {
+  opacity: 0.6;
+  cursor: not-allowed;
+}

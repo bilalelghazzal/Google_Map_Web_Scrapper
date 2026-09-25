@@ -1,5 +1,6 @@
 import { useNavigate } from "react-router";
 import * as FaIcons from "react-icons/fa";
+import { useAuth } from "../context/AuthContext";
 
 // Lecture sécurisée de l'utilisateur stocké (le login n'existe pas encore)
 function getStoredUser() {
@@ -12,15 +13,13 @@ function getStoredUser() {
 
 function ProfilePage() {
   const navigate = useNavigate();
+  const { logout } = useAuth();
   const user = getStoredUser();
 
-  // Pas encore de vraie authentification : on nettoie la session locale
-  // (à remplacer par l'appel au backend quand le login sera prêt)
-  const handleLogout = () => {
-    localStorage.removeItem("token");
-    localStorage.removeItem("user");
+  const handleLogout = async () => {
     sessionStorage.clear();
-    navigate("/");
+    await logout();
+    navigate("/login", { replace: true });
   };
 
   return (

@@ -1,37 +1,35 @@
 import { useState } from "react";
-import { useNavigate } from "react-router";
+import { Navigate, useNavigate } from "react-router";
 import * as FaIcons from "react-icons/fa";
-import api from "../api/axios";
+import { useAuth } from "../context/AuthContext";
 
 function LoginPage() {
   const [username, setUsername] = useState("");
   const [password, setPassword] = useState("");
   const [error, setError] = useState("");
   const [loading, setLoading] = useState(false);
+  const { isAuthenticated, login } = useAuth();
   const navigate = useNavigate();
 
+  // prvent the defaults
   const handleSubmit = async (e) => {
     e.preventDefault();
     setError("");
 
+    //check the user infos :
     if (!username.trim() || !password) {
       setError("Le nom d'utilisateur et le mot de passe sont requis");
       return;
     }
 
     setLoading(true);
+    
 
     try {
-      const response = await api.post("/auth/login", {
-        username: username.trim(),
-        password,
-      });
-
-      const { token, user } = response.data;
-
-      // Sauvegarde du token et des données utilisateur
-      localStorage.setItem("token", token);
-      localStorage.setItem("user", JSON.stringify(user));
+      // login() stocke le token + l'utilisateur ET met à jour le contexte.
+      // Sans ça, ProtectedRoute ne verrait pas la connexion et nous
+      // renverrait immédiatement sur /login.
+      await login(username.trim(), password);
 
       // Redirection vers la page de scraping
       navigate("/scrape");
@@ -43,8 +41,13 @@ function LoginPage() {
     }
   };
 
+  // Déjà connecté : inutile de remontrer le formulaire de connexion
+  if (isAuthenticated) {
+    return <Navigate to="/scrape" replace />;
+  }
+
   return (
-    <div className="page">
+    <div className="page login-page">
       <h1>Connexion</h1>
 
       <div className="login-card">

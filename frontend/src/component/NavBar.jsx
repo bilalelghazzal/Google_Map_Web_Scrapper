@@ -1,22 +1,21 @@
 import { useState } from "react";
 import { NavLink, useNavigate } from "react-router";
 import * as FaIcons from "react-icons/fa";
+import { useAuth } from "../context/AuthContext";
 
 function NavBar() {
   // Etat du sidebar : fermé par défaut
   const [isOpen, setIsOpen] = useState(false);
   const navigate = useNavigate();
+  const { logout } = useAuth();
 
   const closeSidebar = () => setIsOpen(false);
 
-  // Pas encore de vraie authentification : on nettoie la session locale
-  // (à remplacer par l'appel au backend quand le login sera prêt)
-  const handleLogout = () => {
-    localStorage.removeItem("token");
-    localStorage.removeItem("user");
+  const handleLogout = async () => {
     sessionStorage.clear();
     closeSidebar();
-    navigate("/");
+    await logout();
+    navigate("/login", { replace: true });
   };
 
   return (
