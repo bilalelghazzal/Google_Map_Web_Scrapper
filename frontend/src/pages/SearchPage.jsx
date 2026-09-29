@@ -8,7 +8,7 @@ function SearchPage() {
   const [searchQuery, setSearchQuery] = useState(""); // search form
   const [location, setLocation] = useState(""); // search form
   const [results, setResults] = useState([]); // results table
-  const [loading, setLoading] = useState(false); // search form
+  const [loading, setLoading] = useState(false); // search Form ;
   const [error, setError] = useState("");
 
   // BackEnd URL :
